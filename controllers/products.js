@@ -1,9 +1,13 @@
+const Product = require('../model/Product')
+
 const getAllProducts = async (req, res) => {
-    res.status(200).json({ msg: "I am getAllProducts" })
+    const result = await Product.find();
+    res.status(200).json(result)
 };
 
 const getAllProductsTesting = async (req, res) => {
-    res.status(200).json({ msg: "I am getAllProductsTesting" })
+    const result = await Product.find();
+    res.status(200).json(result)
 };
 
 module.exports = { getAllProducts, getAllProductsTesting};
