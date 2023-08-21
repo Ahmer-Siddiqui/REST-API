@@ -19,7 +19,7 @@ const getAllProducts = async (req, res) => {
 };
 
 const getAllProductsTesting = async (req, res) => {
-    const result = await Product.find();
+    const result = await Product.find(req.query).sort("-price");
     res.status(200).json(result)
 };
 
