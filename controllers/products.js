@@ -14,12 +14,12 @@ const getAllProducts = async (req, res) => {
         queryObject.name = { $regex: name, $options: "one"};        
     }
 
-    const result = await Product.find(queryObject);
+    const result = await Product.find(queryObject).sort("-price");
     res.status(200).json(result)
 };
 
 const getAllProductsTesting = async (req, res) => {
-    const result = await Product.find(req.query).sort("-price");
+    const result = await Product.find(req.query).select("name");
     res.status(200).json(result)
 };
 
